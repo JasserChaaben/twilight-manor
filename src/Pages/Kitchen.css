@@ -1,8 +1,8 @@
-/* Unique styles for the Hall component with a mysterious theme */
+/* Unique styles for the Kitchen component with a mysterious theme */
 
-.hall-container {
+.kitchen-container {
     height: 100vh; /* Full viewport height */
-    background-image: url('https://cdnb.artstation.com/p/assets/images/images/001/619/991/large/igor-kirdeika-igorkirdeika-hauntedhall.jpg?1449612389'); /* Replace with the path to your image */
+    background-image: url('https://cdna.artstation.com/p/assets/images/images/001/619/991/large/igor-kirdeika-igorkirdeika-hauntedhall.jpg?1449612389'); /* Replace with the path to your image */
     background-size: cover; /* Cover the entire area */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-position: center; /* Center the image */
@@ -12,9 +12,8 @@
     align-items: center;
     color: #fff; /* Ensure text is visible */
   }
-
   
-  .hall-content {
+  .kitchen-content {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background for readability */
     padding: 30px;
@@ -22,7 +21,7 @@
     border-radius: 10px;
   }
   
-  .hall-title {
+  .kitchen-title {
     color: #cfcfcf; /* Light grey color for the title */
     font-family: 'Creepster', cursive; /* Spooky font */
     font-size: 72px;
@@ -30,7 +29,7 @@
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8); /* Deep shadow effect */
   }
   
-  .hall-button {
+  .kitchen-button {
     color: #fff;
     font-family: 'Arial', sans-serif;
     font-size: 18px;
@@ -45,14 +44,14 @@
     letter-spacing: 1px;
   }
   
-  .hall-button:hover {
+  .kitchen-button:hover {
     background-color: #666; /* Lighter background on hover */
     color: #fff;
     box-shadow: 0 0 12px rgba(255, 255, 255, 0.7); /* Subtle glow effect */
     transform: scale(1.05); /* Slight zoom effect */
   }
   
-  .hall-button:active {
+  .kitchen-button:active {
     background-color: #333; /* Darker background when clicked */
     transform: scale(0.95); /* Slight press effect */
   }

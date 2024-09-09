@@ -6,11 +6,10 @@ function Header() {
     <header className="header-container">
       <nav className="header-nav">
         <ul className="header-nav-list">
-          <li className="header-nav-item">Hall</li>
-          <li className="header-nav-item">Kitchen</li>
-          <li className="header-nav-item">Library</li>
-          <li className="header-nav-item">Dining Room</li>
-          <li className="header-nav-item">Living Room</li>
+          <a href='/hall'><li className="header-nav-item">Hall</li></a>
+          <a href='/kitchen'> <li className="header-nav-item">Kitchen</li></a>
+          <a href='/diningroom'> <li className="header-nav-item">Dining Room</li></a>
+          <a href='livingroom'> <li className="header-nav-item">Living Room</li></a>
         </ul>
       </nav>
     </header>
