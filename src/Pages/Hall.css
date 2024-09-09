@@ -2,7 +2,7 @@
 
 .hall-container {
     height: 100vh; /* Full viewport height */
-    background-image: url('https://cdnb.artstation.com/p/assets/images/images/001/619/991/large/igor-kirdeika-igorkirdeika-hauntedhall.jpg?1449612389'); /* Replace with the path to your image */
+    background-image: url('../Images/hall.jpeg'); /* Replace with the path to your image */
     background-size: cover; /* Cover the entire area */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-position: center; /* Center the image */
