@@ -5,10 +5,22 @@ import DiningRoom from './Pages/Diningroom';
 import Hall from './Pages/Hall';
 import LivingRoom from './Pages/Livingroom';
 import Kitchen from './Pages/Kitchen';
+import SignIn from './Components/SignIn';
+import SignUp from './Components/SignUp';
+import { useState } from 'react';
 
 function App() {
+  const [player,setPlayer]=useState(null);
   return (
     <div className="App">
+    {!player?
+    <Router> 
+     <Routes>
+      <Route path='/' element={<SignIn/>}/>
+      <Route path='/signin' element={<SignIn/>}/>
+      <Route path='/signup' element={<SignUp/>}/>
+     </Routes>
+     </Router>:
     <Router> 
      <Header/>
      <Routes>
@@ -19,6 +31,7 @@ function App() {
       <Route path='/livingroom' element={<LivingRoom/>}/>
      </Routes>
      </Router>
+     }
     </div>
   );
 }
