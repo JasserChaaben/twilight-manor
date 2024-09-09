@@ -1,0 +1,56 @@
+/* Unique styles for the Hall component with a mysterious theme */
+
+.hall-container {
+    height: 100vh; /* Full viewport height */
+    background-image: url('https://cdn1.epicgames.com/ue/product/Screenshot/MansionRender02-1920x1080-db75ec75e7a8d1a24d52e91aa722990e.jpg?resize=1&w=1920'); /* Replace with the path to your image */
+    background-size: cover; /* Cover the entire area */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center; /* Center the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff; /* Ensure text is visible */
+  }
+  
+  .hall-content {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background for readability */
+    padding: 30px;
+    border-radius: 10px;
+  }
+  
+  .hall-title {
+    color: #cfcfcf; /* Light grey color for the title */
+    font-family: 'Creepster', cursive; /* Spooky font */
+    font-size: 36px;
+    margin: 0 0 20px 0; /* Margin below title */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8); /* Deep shadow effect */
+  }
+  
+  .hall-button {
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    padding: 15px 30px; /* Wider padding for larger button */
+    background-color: #444; /* Dark button background */
+    border: 2px solid #888; /* Grey border */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.8); /* Dark shadow */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .hall-button:hover {
+    background-color: #666; /* Lighter background on hover */
+    color: #fff;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.7); /* Subtle glow effect */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  .hall-button:active {
+    background-color: #333; /* Darker background when clicked */
+    transform: scale(0.95); /* Slight press effect */
+  }
+  

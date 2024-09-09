@@ -1,55 +1,59 @@
+/* Unique styles for the Header component with a mysterious theme */
 
-.header-container-floor-one {
-    background-color: #1a1a1a; 
-    padding: 30px;
+.header-container {
+    position: fixed; /* Fix the header at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+    padding: 20px;
     text-align: center;
-    border-bottom: 3px solid #333;
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+    border-bottom: 3px solid #444; /* Darker border */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Enhanced shadow */
+    z-index: 1000; /* Ensure it's above other content */
   }
   
-  .header-title-floor-one {
-    color: #b30000; 
-    font-family: 'Creepster', cursive; 
-    font-size: 36px;
+  .header-title {
+    color: #cfcfcf; /* Light grey color for the title */
+    font-family: 'Creepster', cursive; /* Spooky font */
+    font-size: 32px; /* Adjusted font size */
     margin: 0;
-    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7); 
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9); /* Deep shadow effect */
   }
   
-  .header-nav-floor-one {
-    margin-top: 20px;
+  .header-nav {
+    margin-top: 15px;
   }
   
-  .header-nav-list-floor-one {
+  .header-nav-list {
     list-style: none;
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
   }
   
-  .header-nav-item-floor-one {
-    color: #fff;
+  .header-nav-item {
+    color: #cfcfcf; /* Light grey color for nav items */
     font-family: 'Arial', sans-serif;
     font-size: 20px;
-    padding: 10px 20px;
-    background-color: #333; 
-    border: 2px solid #b30000; 
+    padding: 12px 20px;
+    background-color: #333; /* Dark button background */
+    border: 2px solid #777; /* Grey border */
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
     text-transform: uppercase;
     letter-spacing: 1px;
   }
   
-  .header-nav-item-floor-one:hover {
-    background-color: #b30000; 
-    box-shadow: 0 0 10px rgba(179, 0, 0, 0.7); 
-    transform: scale(1.05); 
+  .header-nav-item:hover {
+    background-color: #555; /* Slightly lighter background on hover */
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Subtle glow effect */
   }
   
-  .header-nav-item-floor-one:active {
-    transform: scale(0.95); 
-    background-color: #660000; 
+  .header-nav-item:active {
+    background-color: #222; /* Darker background when clicked */
   }
   
