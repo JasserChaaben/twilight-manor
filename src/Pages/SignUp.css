@@ -23,8 +23,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
   }
-  
+
+  .signup-change{
+    color : white;
+  }
+  .signup-change:hover{
+    color : grey;
+  }
   .signup-title {
     color: #cfcfcf; /* Light grey color for the title */
     font-family: 'Creepster', cursive; /* Spooky font */

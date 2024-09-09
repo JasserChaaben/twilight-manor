@@ -97,7 +97,7 @@ function SignUp() {
         />
         <button type="submit" className="signup-button">Sign Up</button>
         
-     <a href="/signin">Login</a>
+     <a href="/signin" className='signup-change'>Login</a>
       </form>
     </div>}</>
   );

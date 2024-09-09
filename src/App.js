@@ -5,8 +5,8 @@ import DiningRoom from './Pages/Diningroom';
 import Hall from './Pages/Hall';
 import LivingRoom from './Pages/Livingroom';
 import Kitchen from './Pages/Kitchen';
-import SignIn from './Components/SignIn';
-import SignUp from './Components/SignUp';
+import SignIn from './Pages/SignIn';
+import SignUp from './Pages/SignUp';
 import { useState } from 'react';
 
 function App() {

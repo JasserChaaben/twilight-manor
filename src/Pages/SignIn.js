@@ -34,7 +34,7 @@ function SignIn() {
         />
         <button type="submit" className="signin-button">Sign In</button>
         
-     <a href="/signup">Register</a>
+     <a href="/signup" className='signin-change'>Register</a>
       </form>
     </div>
   );

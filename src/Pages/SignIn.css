@@ -22,8 +22,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
   }
   
+  .signin-change{
+    color : white;
+  }
+  
+  .signin-change:hover{
+    color : grey;
+  }
   .signin-title {
     color: #cfcfcf; /* Light grey color for the title */
     font-family: 'Creepster', cursive; /* Spooky font */
