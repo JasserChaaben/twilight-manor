@@ -1,11 +1,15 @@
 import './Hall.css';
 import React, { useState } from 'react';
 
-function Hall({name,level}) {
+function Hall({name,level,LevelUp}) {
   const [showPopup, setShowPopup] = useState(false);
 
   const handleButtonClick = () => {
     console.log(level)
+    if(level<2)
+    {
+      LevelUp();
+    }
     if(level<3)
     setShowPopup(true);
   };

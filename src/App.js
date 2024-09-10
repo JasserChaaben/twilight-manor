@@ -18,21 +18,35 @@ function App() {
   const [level, setLevel] =useState(0);
   const [gender, setGender] =useState(0);
   const [valid,setValid] = useState(false);
-  const updateLevel = () =>{
-      
+  const LevelUp = () =>{
+    playerUpdate();
+    axios.post('http://localhost:8081/level', {username:player,newLevel:level+1})
+    .then(res => console.log(res.data))
+    .catch(err => console.log(err));
+
+    playerUpdate();
   }
-  useEffect(() => {
-    if (!loaded) {
-      axios
+  const playerUpdate = ()=>{
+    axios
         .post('http://localhost:8081/player', { username: username.username })
         .then((res) => {
           setPlayer(res.data.username);
           setLevel(res.data.level);
           setGender(res.data.gender);
-          if (res.data.username) setValid(true);
         })
         .catch((err) => console.log(err));
-        
+  }
+  useEffect(() => {
+    if (!loaded) {
+      axios
+      .post('http://localhost:8081/player', { username: username.username })
+      .then((res) => {
+        setPlayer(res.data.username);
+        setLevel(res.data.level);
+        setGender(res.data.gender);
+        if (res.data.username) setValid(true);
+      })
+      .catch((err) => console.log(err));
       setLoaded(true);
     }
   }, []);
@@ -49,8 +63,8 @@ function App() {
     <Router> 
      <Header name={player} gender={gender}/>
      <Routes>
-      <Route p  ath='/' element={<Hall name={player} level={level}/>}/>
-      <Route path='/hall' element={<Hall name={player} level={level}/>}/>
+      <Route p  ath='/' element={<Hall name={player} level={level} LevelUp={LevelUp}/>}/>
+      <Route path='/hall' element={<Hall name={player} level={level} LevelUp={LevelUp}/>}/>
       <Route path='/Kitchen' element={<Kitchen name={player} level={level}/>}/>
       <Route path='/Diningroom' element={<DiningRoom name={player} level={level}/>}/>
       <Route path='/livingroom' element={<LivingRoom name={player}level={level}/>}/>
