@@ -1,13 +1,14 @@
 import React from 'react';
 import './Header.css';
 import { useCookies } from 'react-cookie';
-import profileImageUrl from "../Images/male-player.png"
+import maleProfileImageUrl from "../Images/male-player.png"
+import femaleProfileImageUrl from "../Images/female-player.png"
 
-function Header() {
-  console.log()
-  const [player, setPlayer, removePlayer] = useCookies(['username']);
+function Header({name , gender} ) {
+  const [username, setPlayer, removePlayer] = useCookies(['username']);
   const logout =()=>{
  removePlayer('username', { path: '/' })
+ window.location.reload();
   }
   return (
     <header className="header-container">
@@ -17,7 +18,7 @@ function Header() {
           <a href='/kitchen'> <li className="header-nav-item">Kitchen</li></a>
           <a href='/diningroom'> <li className="header-nav-item">Dining Room</li></a>
           <a href='livingroom'> <li className="header-nav-item">Living Room</li></a>
-           <li className="player"  style={{ '--profile-image': `url(${profileImageUrl})`  }}>{player.username}</li>
+           <li className="player"  style={gender==0?{ '--profile-image': `url(${maleProfileImageUrl})`  }:{ '--profile-image': `url(${femaleProfileImageUrl})`  }}>{name}</li>
            <li className="Logout" onClick={logout}>Log out</li>
         </ul>
       </nav>

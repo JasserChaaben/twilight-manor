@@ -47,9 +47,9 @@ function SignIn() {
   return (
     <>{success? 
       <div className="signup-container">
-          <h1 className="signup-title">Login Successfully!</h1>
+          <h1 className="signup-title">You're Ready!</h1>
           
-     <a href="/"> <button type="submit" className="signup-button">log in</button> </a>
+     <a href="/"> <button type="submit" className="signup-button">Enter</button> </a>
       </div>
       :
     <div className="signin-container">

@@ -8,13 +8,38 @@ import Kitchen from './Pages/Kitchen';
 import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
 import { useCookies } from 'react-cookie';
+import { useEffect, useState } from 'react';
+import axios from 'axios'
 
 function App() {
-  const [player, setplayer] = useCookies(['username']);
-  console.log(player.username)
+  const [username, setUsername] = useCookies(['username']);
+  const [loaded,setLoaded] = useState(false);
+  const [player, setPlayer] =useState('');
+  const [level, setLevel] =useState(0);
+  const [gender, setGender] =useState(0);
+  const [valid,setValid] = useState(false);
+  const updateLevel = () =>{
+      
+  }
+  useEffect(() => {
+    if (!loaded) {
+      axios
+        .post('http://localhost:8081/player', { username: username.username })
+        .then((res) => {
+          setPlayer(res.data.username);
+          setLevel(res.data.level);
+          setGender(res.data.gender);
+          if (res.data.username) setValid(true);
+        })
+        .catch((err) => console.log(err));
+        
+      setLoaded(true);
+    }
+  }, []);
+  
   return (
     <div className="App">
-    {!player.username?
+    {!valid?
     <Router> 
      <Routes>
       <Route path='/' element={<SignIn/>}/>
@@ -22,13 +47,13 @@ function App() {
      </Routes>
      </Router>:
     <Router> 
-     <Header />
+     <Header name={player} gender={gender}/>
      <Routes>
-      <Route path='/' element={<Hall/>}/>
-      <Route path='/hall' element={<Hall/>}/>
-      <Route path='/Kitchen' element={<Kitchen/>}/>
-      <Route path='/Diningroom' element={<DiningRoom/>}/>
-      <Route path='/livingroom' element={<LivingRoom/>}/>
+      <Route p  ath='/' element={<Hall name={player} level={level}/>}/>
+      <Route path='/hall' element={<Hall name={player} level={level}/>}/>
+      <Route path='/Kitchen' element={<Kitchen name={player} level={level}/>}/>
+      <Route path='/Diningroom' element={<DiningRoom name={player} level={level}/>}/>
+      <Route path='/livingroom' element={<LivingRoom name={player}level={level}/>}/>
      </Routes>
      </Router>
      }

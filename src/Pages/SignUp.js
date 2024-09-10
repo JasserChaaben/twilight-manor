@@ -10,6 +10,8 @@ function SignUp() {
   const [password, setPassword] = useState('');
   const [repeatPassword, setrepeatPassword] = useState('');
 
+  const [gender, setGender] = useState(0);
+
   const [validUsername, setValidUsername] = useState(false);
   const [validPassword, setValidPassword] = useState(false);
   const [passwordMatch, setPasswordMatch] = useState(false);
@@ -51,7 +53,7 @@ function SignUp() {
 
     // Handle successful form submission
     e.preventDefault();
-    axios.post('http://localhost:8081/add', {username:username,password:password})
+    axios.post('http://localhost:8081/add', {username:username,password:password,gender:gender})
     .then(res => res.data==='User added successfully'?setSuccess(true):alert(res.data))
     .catch(err => console.log(err));
   };
@@ -76,6 +78,18 @@ function SignUp() {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
+        <label htmlFor="gender" className="signup-label">Gender</label>
+<select
+  id="gender"
+  className="signup-input"
+  value={gender}
+  onChange={(e) => setGender(e.target.value)}
+  required
+>
+  <option value="" disabled>Select your gender</option>
+  <option value="0">Male</option>
+  <option value="1">Female</option>
+</select>
         <label htmlFor="password" className="signup-label">Password</label>
         <input
           type="password"
