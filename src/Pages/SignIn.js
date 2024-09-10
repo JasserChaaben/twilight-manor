@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SignIn.css';
 import axios from 'axios'
+import { useCookies } from 'react-cookie';
 
 function SignIn() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [cookies, setCookie] = useCookies(['username']);
 
   const [success,setSuccess] = useState(false); 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
   
+    console.log(cookies)
     if (!username) {
       return;
     }
@@ -24,7 +28,7 @@ function SignIn() {
       axios.post('http://localhost:8081/user', { username: username, password: password })
         .then(res => {
           if (res.data === 'Login Successfully') {
-           
+            setCookie('username', username, { path: '/' });
             setSuccess(true)
           } else {
             alert(res.data);
@@ -36,6 +40,8 @@ function SignIn() {
     } catch (error) {
       alert('Exception occurred:', error);
     }
+    
+    console.log(cookies)
   };
 
   return (
@@ -43,7 +49,7 @@ function SignIn() {
       <div className="signup-container">
           <h1 className="signup-title">Login Successfully!</h1>
           
-     <a href="/signin"> <button type="submit" className="signup-button">log in</button> </a>
+     <a href="/"> <button type="submit" className="signup-button">log in</button> </a>
       </div>
       :
     <div className="signin-container">

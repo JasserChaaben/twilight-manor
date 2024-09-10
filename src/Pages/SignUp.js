@@ -61,7 +61,7 @@ function SignUp() {
         <div className="signup-container">
             <h1 className="signup-title">Sign Up Successfully!</h1>
             
-       <a href="/signin"> <button type="submit" className="signup-button">log in</button> </a>
+       <a href="/"> <button type="submit" className="signup-button">log in</button> </a>
         </div>
         :
     <div className="signup-container">
@@ -97,7 +97,7 @@ function SignUp() {
         />
         <button type="submit" className="signup-button">Sign Up</button>
         
-     <a href="/signin" className='signup-change'>Login</a>
+     <a href="/" className='signup-change'>Login</a>
       </form>
     </div>}</>
   );

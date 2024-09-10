@@ -15,6 +15,51 @@
   a{
     text-decoration: none;
   }
+  .Logout {
+    position: absolute;
+    right: 50px;
+    color: #cfcfcf; /* Light grey color for nav items */
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.player {
+  display: flex;
+  align-items: center;
+  background-color: #444;
+  padding: 5px 10px;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  color: #cfcfcf;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.player::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #555;
+    background-image: var(--profile-image);
+    border-radius: 50%;
+    margin-right: 10px;
+    background-size: cover;
+    background-position: center;
+}
+
+ .Logout:hover {
+    background-color: rgba(85, 85, 85, 0.459);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
   .header-title {
     color: #cfcfcf; /* Light grey color for the title */
     font-family: 'Creepster', cursive; /* Spooky font */

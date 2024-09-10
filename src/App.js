@@ -7,22 +7,22 @@ import LivingRoom from './Pages/Livingroom';
 import Kitchen from './Pages/Kitchen';
 import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
-import { useState } from 'react';
+import { useCookies } from 'react-cookie';
 
 function App() {
-  const [player,setPlayer]=useState(null);
+  const [player, setplayer] = useCookies(['username']);
+  console.log(player.username)
   return (
     <div className="App">
-    {!player?
+    {!player.username?
     <Router> 
      <Routes>
       <Route path='/' element={<SignIn/>}/>
-      <Route path='/signin' element={<SignIn/>}/>
       <Route path='/signup' element={<SignUp/>}/>
      </Routes>
      </Router>:
     <Router> 
-     <Header/>
+     <Header />
      <Routes>
       <Route path='/' element={<Hall/>}/>
       <Route path='/hall' element={<Hall/>}/>
