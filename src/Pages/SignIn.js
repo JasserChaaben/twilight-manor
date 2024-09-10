@@ -1,16 +1,51 @@
 import React, { useState } from 'react';
 import './SignIn.css';
+import axios from 'axios'
 
 function SignIn() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const [success,setSuccess] = useState(false); 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+  
+    if (!username) {
+      return;
+    }
+  
+    if (!password) {
+      return;
+    }
+  
+
+     
+    try {
+      axios.post('http://localhost:8081/user', { username: username, password: password })
+        .then(res => {
+          if (res.data === 'Login Successfully') {
+           
+            setSuccess(true)
+          } else {
+            alert(res.data);
+          }
+        })
+        .catch(err => {
+          alert('Error during POST request:', err);
+        });
+    } catch (error) {
+      alert('Exception occurred:', error);
+    }
   };
 
   return (
+    <>{success? 
+      <div className="signup-container">
+          <h1 className="signup-title">Login Successfully!</h1>
+          
+     <a href="/signin"> <button type="submit" className="signup-button">log in</button> </a>
+      </div>
+      :
     <div className="signin-container">
       <h1 className="signin-title">Sign In</h1>
       <form className="signin-form" onSubmit={handleSubmit}>
@@ -36,7 +71,7 @@ function SignIn() {
         
      <a href="/signup" className='signin-change'>Register</a>
       </form>
-    </div>
+    </div>}</>
   );
 }
 
