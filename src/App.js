@@ -18,6 +18,9 @@ function App() {
   const [level, setLevel] =useState(0);
   const [gender, setGender] =useState(0);
   const [valid,setValid] = useState(false);
+  const [floor,setFloor] = useState(1);
+
+  
   const LevelUp = () =>{
     playerUpdate();
     axios.post('http://localhost:8081/level', {username:player,newLevel:level+1})
@@ -64,11 +67,11 @@ function App() {
     <Router> 
      <Header name={player} gender={gender} playerUpdate={playerUpdate}/>
      <Routes>
-      <Route path='/' element={<Hall name={player} level={level} LevelUp={LevelUp}/>}/>
-      <Route path='/hall' element={<Hall name={player} level={level} LevelUp={LevelUp}/>}/>
-      <Route path='/Kitchen' element={<Kitchen name={player} level={level}/>}/>
-      <Route path='/Diningroom' element={<DiningRoom name={player} level={level}/>}/>
-      <Route path='/livingroom' element={<LivingRoom name={player}level={level}/>}/>
+      <Route path='/' element={<Hall goToSecondFloor={()=>setFloor(2)} name={player} level={level} LevelUp={LevelUp}/>}/>
+      <Route path='/hall' element={<Hall goToSecondFloor={()=>setFloor(2)} name={player} level={level} LevelUp={LevelUp}/>}/>
+      <Route path='/Kitchen' element={<Kitchen name={player} level={level} LevelUp={LevelUp}/>}/>
+      <Route path='/Diningroom' element={<DiningRoom name={player} level={level} LevelUp={LevelUp}/>}/>
+      <Route path='/livingroom' element={<LivingRoom name={player}level={level} LevelUp={LevelUp}/>}/>
      </Routes>
      </Router>
      }
