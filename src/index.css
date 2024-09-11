@@ -127,3 +127,58 @@ border-radius: 2px;
   background-color: #ffeb72;
   color: #afdcee;
 }
+
+.button-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two buttons per row */
+  gap: 20px; /* Space between buttons */
+  margin-top: 20px;
+}
+
+.quiz-option-button {
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  padding: 15px 30px;
+  background-color: #444;
+  border: 2px solid #888;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100%; /* Ensure buttons take full width of the grid column */
+}
+
+.quiz-option-button:hover {
+  background-color: #666;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+  transform: scale(1.05);
+}
+
+.quiz-option-button:active {
+  background-color: #333;
+  transform: scale(0.95);
+}
+
+.popup-close {
+  margin-top: 20px;
+  color: #fff;
+  background-color: #444;
+  border: 2px solid #888;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+.popup-close:hover {
+  background-color: #666;
+  transform: scale(1.05);
+}
+
+.popup-close:active {
+  background-color: #333;
+  transform: scale(0.95);
+}

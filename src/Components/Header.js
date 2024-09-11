@@ -3,12 +3,15 @@ import './Header.css';
 import { useCookies } from 'react-cookie';
 import maleProfileImageUrl from "../Images/male-player.png"
 import femaleProfileImageUrl from "../Images/female-player.png"
+import { useNavigate } from 'react-router-dom';
 
-function Header({name , gender} ) {
+function Header({name , gender , playerUpdate} ) {
   const [username, setPlayer, removePlayer] = useCookies(['username']);
+  const navigate= useNavigate();
   const logout =()=>{
  removePlayer('username', { path: '/' })
- window.location.reload();
+ navigate("/");
+ window. location.reload();
   }
   return (
     <header className="header-container">

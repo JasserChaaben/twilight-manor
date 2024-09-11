@@ -26,6 +26,7 @@ function App() {
 
     playerUpdate();
   }
+  
   const playerUpdate = ()=>{
     axios
         .post('http://localhost:8081/player', { username: username.username })
@@ -61,9 +62,9 @@ function App() {
      </Routes>
      </Router>:
     <Router> 
-     <Header name={player} gender={gender}/>
+     <Header name={player} gender={gender} playerUpdate={playerUpdate}/>
      <Routes>
-      <Route p  ath='/' element={<Hall name={player} level={level} LevelUp={LevelUp}/>}/>
+      <Route path='/' element={<Hall name={player} level={level} LevelUp={LevelUp}/>}/>
       <Route path='/hall' element={<Hall name={player} level={level} LevelUp={LevelUp}/>}/>
       <Route path='/Kitchen' element={<Kitchen name={player} level={level}/>}/>
       <Route path='/Diningroom' element={<DiningRoom name={player} level={level}/>}/>
