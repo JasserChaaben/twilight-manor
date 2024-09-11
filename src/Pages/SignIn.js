@@ -6,8 +6,7 @@ import { useCookies } from 'react-cookie';
 function SignIn() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [cookies, setCookie] = useCookies(['username']);
-
+  const [cookies, setCookie] = useCookies(['username','floor']);
   const [success,setSuccess] = useState(false); 
   
   const handleSubmit = (e) => {
@@ -29,6 +28,7 @@ function SignIn() {
         .then(res => {
           if (res.data === 'Login Successfully') {
             setCookie('username', username, { path: '/' });
+            setCookie('floor',1,{ path: '/' })
             setSuccess(true)
           } else {
             alert(res.data);

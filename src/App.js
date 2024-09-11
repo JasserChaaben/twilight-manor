@@ -10,15 +10,15 @@ import SignUp from './Pages/SignUp';
 import { useCookies } from 'react-cookie';
 import { useEffect, useState } from 'react';
 import axios from 'axios'
+import HeaderTwo from './Components/HeaderTwo';
 
 function App() {
-  const [username, setUsername] = useCookies(['username']);
+  const [cookies, setCookie] = useCookies(['username','floor']);
   const [loaded,setLoaded] = useState(false);
   const [player, setPlayer] =useState('');
   const [level, setLevel] =useState(0);
   const [gender, setGender] =useState(0);
   const [valid,setValid] = useState(false);
-  const [floor,setFloor] = useState(1);
 
   
   const LevelUp = () =>{
@@ -32,7 +32,7 @@ function App() {
   
   const playerUpdate = ()=>{
     axios
-        .post('http://localhost:8081/player', { username: username.username })
+        .post('http://localhost:8081/player', { username: cookies.username })
         .then((res) => {
           setPlayer(res.data.username);
           setLevel(res.data.level);
@@ -41,9 +41,10 @@ function App() {
         .catch((err) => console.log(err));
   }
   useEffect(() => {
+    console.log(cookies)
     if (!loaded) {
       axios
-      .post('http://localhost:8081/player', { username: username.username })
+      .post('http://localhost:8081/player', { username: cookies.username })
       .then((res) => {
         setPlayer(res.data.username);
         setLevel(res.data.level);
@@ -64,14 +65,21 @@ function App() {
       <Route path='/signup' element={<SignUp/>}/>
      </Routes>
      </Router>:
+     cookies.floor==1?
     <Router> 
      <Header name={player} gender={gender} playerUpdate={playerUpdate}/>
      <Routes>
-      <Route path='/' element={<Hall goToSecondFloor={()=>setFloor(2)} name={player} level={level} LevelUp={LevelUp}/>}/>
-      <Route path='/hall' element={<Hall goToSecondFloor={()=>setFloor(2)} name={player} level={level} LevelUp={LevelUp}/>}/>
+      <Route path='/' element={<Hall goToSecondFloor={()=>setCookie('floor',2,{ path: '/' })} name={player} level={level} LevelUp={LevelUp}/>}/>
+      <Route path='/hall' element={<Hall goToSecondFloor={()=>setCookie('floor',2,{ path: '/' })} name={player} level={level} LevelUp={LevelUp}/>}/>
       <Route path='/Kitchen' element={<Kitchen name={player} level={level} LevelUp={LevelUp}/>}/>
       <Route path='/Diningroom' element={<DiningRoom name={player} level={level} LevelUp={LevelUp}/>}/>
       <Route path='/livingroom' element={<LivingRoom name={player}level={level} LevelUp={LevelUp}/>}/>
+     </Routes>
+     </Router>
+     :
+     <Router> 
+     <HeaderTwo name={player} gender={gender} playerUpdate={playerUpdate}/>
+     <Routes>
      </Routes>
      </Router>
      }
