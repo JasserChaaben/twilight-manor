@@ -1,0 +1,50 @@
+.kids-bedroom-container {
+    height: 100vh;
+    background-image: url('../Images/kidsbedroom.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+  
+  .kids-bedroom-content {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    width: 60%;
+    border-radius: 10px;
+  }
+  
+  .kids-bedroom-title {
+    color: #cfcfcf;
+    font-family: 'Creepster', cursive;
+    font-size: 72px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
+  }
+  
+  .kids-bedroom-button {
+    color: #fff;
+    font-size: 18px;
+    padding: 15px 30px;
+    background-color: #444;
+    border: 2px solid #888;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  }
+  
+  .kids-bedroom-button:hover {
+    background-color: #666;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+  }
+  
+  .kids-bedroom-button:active {
+    background-color: #333;
+    transform: scale(0.95);
+  }
+  

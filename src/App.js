@@ -11,6 +11,10 @@ import { useCookies } from 'react-cookie';
 import { useEffect, useState } from 'react';
 import axios from 'axios'
 import HeaderTwo from './Components/HeaderTwo';
+import Hallway from './Pages/Hallway';
+import KidsBedroom from './Pages/KidsBedroom';
+import Library from './Pages/Library';
+import MainBedroom from './Pages/MainBedroom';
 
 function App() {
   const [cookies, setCookie] = useCookies(['username','floor']);
@@ -80,6 +84,11 @@ function App() {
      <Router> 
      <HeaderTwo name={player} gender={gender} playerUpdate={playerUpdate}/>
      <Routes>
+      <Route path='/' element={<Hallway goToSecondFloor={()=>setCookie('floor',1,{ path: '/' })} name={player} level={level} LevelUp={LevelUp}/>}/>
+      <Route path='/hallway' element={<Hallway goToSecondFloor={()=>setCookie('floor',1,{ path: '/' })} name={player} level={level} LevelUp={LevelUp}/>}/>
+      <Route path='/library' element={<Library name={player} level={level} LevelUp={LevelUp}/>}/>
+      <Route path='/kidsbedroom' element={<KidsBedroom name={player} level={level} LevelUp={LevelUp}/>}/>
+      <Route path='/mainbedroom' element={<MainBedroom name={player} level={level} LevelUp={LevelUp}/>}/>
      </Routes>
      </Router>
      }

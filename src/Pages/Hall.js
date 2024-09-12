@@ -14,7 +14,7 @@ const navigate= useNavigate();
     setShowPopup(true);
     else{
     goToSecondFloor();
-    navigate("/")
+    navigate("/hallway")
     window. location.reload();
   }
   };
