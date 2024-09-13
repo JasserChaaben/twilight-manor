@@ -1,55 +1,65 @@
-import "./Kitchen.css";
-import React, { useEffect, useState } from "react";
+import "./HiddenRoom.css";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function Kitchen({ name, gender, level, LevelUp }) {
+function HiddenRoom({ name, gender, level, LevelUp }) {
   const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate();
 
   const handleButtonClick = () => {
     setShowPopup(true);
   };
+
   return (
-    <div className="kitchen-container">
-      <h1 className="kitchen-title">Kitchen</h1>
+    <div className="hidden-room-container">
+      <h1 className="hidden-room-title">Hidden Room</h1>
       {!showPopup && (
-        <div className="kitchen-content">
-          {level <= 2 ? (
+        <div className="hidden-room-content">
+          {level <= 10 ? (
             <h3>
-              The kitchen is a labyrinth of old-world charm, shrouded in an
-              eerie quiet. Dust-covered shelves groan under the weight of aged
-              crockery, and a large iron stove stands sentinel in the corner.
-              Flickering shadows dance across the worn, tiled floor as if the
-              room itself holds secrets of meals long forgotten. {name} feels a
-              chill, as if the very walls are whispering tales of culinary
-              mysteries and ghostly feasts.
+              The Hidden Room is cloaked in an unsettling quiet, its dark
+              corners obscured by thick cobwebs. Dim light filters through the
+              cracks in the walls, barely illuminating the dusty furniture
+              scattered around. An old chest in the corner might hold hidden
+              secrets, and strange markings on the walls hint at forgotten
+              rituals. The air is dense with a musty smell, and a cold draft
+              seems to whisper eerie tales of the mansion's past, beckoning{" "}
+              {name} to uncover the mysteries within.
             </h3>
           ) : (
             <h3>
-              As {name} searches through the kitchen,{" "}
-              {gender == 0 ? "he" : "she"} notice a strange, dusty cookbook left
-              open on the counter. The pages are worn, and one passage is
-              underlined in dark ink: "The feast was never finished... It waits
-              where the table is set." Flipping the page reveals an old diagram
-              of the mansion’s dining room. A small sketch marks a specific spot
-              on the table. The message is clear—something important remains
-              there, waiting to be found.
+              In the dimly lit Hidden Room, {name} discovers the final clues
+              needed to uncover the mansion’s secrets. The old chest reveals
+              ancient manuscripts detailing the hidden history of the mansion
+              and its occupants. The cryptic symbols on the walls start making
+              sense, leading to the final location of the treasure.{" "}
+              {gender === 0 ? "He" : "She"} finds the treasure hidden behind a
+              false wall, confirming that the mansion’s dark past is finally
+              unveiled. The journey comes to an end as {name} stands victorious
+              in solving the mansion’s mystery.
             </h3>
           )}
-          {level != 2 ? (
-            <h4>Nothing is here</h4>
+          {level < 10 ? (
+            <h4>There’s nothing here yet</h4>
+          ) : level > 10 ? (
+            <button
+              className="hidden-room-button"
+              onClick={() => navigate("/treasure")}
+            >
+              Find the Treasure
+            </button>
           ) : (
-            <button className="diningroom-button" onClick={handleButtonClick}>
-              Look Around
+            <button className="hidden-room-button" onClick={handleButtonClick}>
+              Investigate
             </button>
           )}
         </div>
       )}
-
       {showPopup && (
-        <FirstTest
+        <Objective
           name={name}
           win={() => {
             setShowPopup(false);
-            console.log("win");
             LevelUp();
             window.location.reload();
           }}
@@ -59,46 +69,18 @@ function Kitchen({ name, gender, level, LevelUp }) {
     </div>
   );
 }
-const FirstTest = ({ name, win, onClose }) => {
+
+const Objective = ({ name, win, onClose }) => {
   const [quizIndex, setQuizIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
 
   const quizQuestions = [
-    {
-      question: "What is the main purpose of React?",
-      options: [
-        "To build user interfaces",
-        "To manage databases",
-        "To style web pages",
-        "To perform server-side rendering",
-      ],
-      correctAnswer: 0,
-    },
-    {
-      question: "What is a React Hook?",
-      options: [
-        "A special function to use state and lifecycle",
-        "A tool for making HTTP requests",
-        "A way to style components",
-        "A type of React component",
-      ],
-      correctAnswer: 0,
-    },
-    {
-      question: "What is JSX?",
-      options: [
-        "A JavaScript extension for writing HTML",
-        "A CSS-in-JS library",
-        "A package manager",
-        "A type of React component",
-      ],
-      correctAnswer: 0,
-    },
+    // Define your quiz questions here
   ];
 
-  // Fisher-Yates shuffle algorithm to shuffle an array
+  // Shuffle function
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -107,7 +89,6 @@ const FirstTest = ({ name, win, onClose }) => {
     return array;
   };
 
-  // Scramble the options and keep track of the correct answer
   useEffect(() => {
     const scrambledQuestions = quizQuestions.map((question) => {
       const options = [...question.options];
@@ -124,12 +105,13 @@ const FirstTest = ({ name, win, onClose }) => {
 
     setShuffledQuestions(scrambledQuestions);
   }, []);
+
   useEffect(() => {
-    console.log(score);
-    if (score == 3) {
+    if (score === quizQuestions.length) {
       win();
     }
   }, [score]);
+
   const handleAnswerClick = (index) => {
     if (index === shuffledQuestions[quizIndex].correctAnswer) {
       setScore(score + 1);
@@ -154,7 +136,6 @@ const FirstTest = ({ name, win, onClose }) => {
                 <button
                   key={index}
                   className="quiz-option-button"
-                  id={`quiz-button-${index}`}
                   onClick={() => handleAnswerClick(index)}
                 >
                   {option}
@@ -162,7 +143,7 @@ const FirstTest = ({ name, win, onClose }) => {
               ))}
             </div>
           </>
-        ) : score < 3 ? (
+        ) : score < quizQuestions.length ? (
           <div>
             <h3>
               Quiz Complete! You scored {score} out of{" "}
@@ -173,7 +154,7 @@ const FirstTest = ({ name, win, onClose }) => {
           <></>
         )}
 
-        {showResults && score < 3 ? (
+        {showResults && score < quizQuestions.length ? (
           <button className="popup-close" onClick={onClose}>
             Go Back
           </button>
@@ -185,4 +166,4 @@ const FirstTest = ({ name, win, onClose }) => {
   );
 };
 
-export default Kitchen;
+export default HiddenRoom;

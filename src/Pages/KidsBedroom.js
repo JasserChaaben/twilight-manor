@@ -1,7 +1,7 @@
 import "./KidsBedroom.css";
 import React, { useEffect, useState } from "react";
 
-function KidsBedroom({ name, level, LevelUp }) {
+function KidsBedroom({ name, gender, level, LevelUp }) {
   const [showPopup, setShowPopup] = useState(false);
   const handleButtonClick = () => {
     setShowPopup(true);
@@ -29,7 +29,8 @@ function KidsBedroom({ name, level, LevelUp }) {
             </h3>
           ) : (
             <h3>
-              As {name} searches through the dimly lit Kids' Bedroom, they
+              As {name} searches through the dimly lit Kids' Bedroom,{" "}
+              {gender == 0 ? "he " : "she "}
               discover a small, ornate wooden box hidden beneath the bed. The
               box, dust-covered and aged, reveals a tarnished brass key with
               intricate designs when opened. The key feels weighty and

@@ -101,7 +101,12 @@ function App() {
             <Route
               path="/Kitchen"
               element={
-                <Kitchen name={player} level={level} LevelUp={LevelUp} />
+                <Kitchen
+                  name={player}
+                  gender={gender}
+                  level={level}
+                  LevelUp={LevelUp}
+                />
               }
             />
             <Route
@@ -151,13 +156,23 @@ function App() {
             <Route
               path="/library"
               element={
-                <Library name={player} level={level} LevelUp={LevelUp} />
+                <Library
+                  name={player}
+                  gender={gender}
+                  level={level}
+                  LevelUp={LevelUp}
+                />
               }
             />
             <Route
               path="/kidsbedroom"
               element={
-                <KidsBedroom name={player} level={level} LevelUp={LevelUp} />
+                <KidsBedroom
+                  name={player}
+                  gender={gender}
+                  level={level}
+                  LevelUp={LevelUp}
+                />
               }
             />
             <Route
