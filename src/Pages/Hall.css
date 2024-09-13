@@ -1,5 +1,17 @@
 /* Unique styles for the Hall component with a mysterious theme */
 
+.treasure-container {
+  height: 100vh; /* Full viewport height */
+  background-image: url('../Images/treasure.jpeg'); /* Replace with the path to your image */
+  background-size: cover; /* Cover the entire area */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-position: center; /* Center the image */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff; /* Ensure text is visible */
+}
 .hall-container {
     height: 100vh; /* Full viewport height */
     background-image: url('../Images/hall.jpeg'); /* Replace with the path to your image */
