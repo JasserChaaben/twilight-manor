@@ -154,7 +154,7 @@ const FirstTest = ({ name, win, onClose }) => {
   return (
     <div className="popup-overlay">
       <div className="popup-content">
-        {showResults && score < 3 ? <h2>{name} Failed the quiz!</h2> : <></>}
+        {showResults && score < 4 ? <h2>{name} Failed the quiz!</h2> : <></>}
 
         {!showResults ? (
           <>

@@ -15,6 +15,7 @@ import Hallway from "./Pages/Hallway";
 import KidsBedroom from "./Pages/KidsBedroom";
 import Library from "./Pages/Library";
 import MainBedroom from "./Pages/MainBedroom";
+import HiddenRoom from "./Pages/HiddenRoom";
 
 function App() {
   const [cookies, setCookie] = useCookies(["username", "floor"]);
@@ -181,6 +182,19 @@ function App() {
                 <MainBedroom name={player} level={level} LevelUp={LevelUp} />
               }
             />
+            {level >= 8 && (
+              <Route
+                path="/hiddenroom"
+                element={
+                  <HiddenRoom
+                    name={player}
+                    gender={gender}
+                    level={level}
+                    LevelUp={LevelUp}
+                  />
+                }
+              />
+            )}
           </Routes>
         </Router>
       )}
