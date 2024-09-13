@@ -20,7 +20,7 @@ function Hallway({ goToSecondFloor, name, level, LevelUp }) {
         <h3>
         The second-floor hallway stretches out in eerie silence, cloaked in dust and decay. Faded wallpaper, once vibrant, now peels away to reveal darkened wood beneath. Dim light filters through cracked windows, casting long shadows that twist and bend along the floor. Old portraits of long-forgotten faces line the walls, their eyes following {name} with unsettling intensity. The air is thick with the scent of mildew, and the faint echo of footsteps from a past long gone seems to reverberate through the narrow, creaking floorboards. Whispers of the mansion’s grim history linger in the oppressive stillness.
         </h3>
-        <button className="hallway-button" onClick={handleButtonClick}>First Floor</button>
+        <button className="hallway-button" onClick={handleButtonClick}>Go To First Floor</button>
       </div>
     </div>
   );

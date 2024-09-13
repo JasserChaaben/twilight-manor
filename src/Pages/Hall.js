@@ -25,7 +25,7 @@ const navigate= useNavigate();
       <div className="hall-content">
         <h3>The grand manor hall exudes an air of enigmatic allure, bathed in shadowy twilight. Ornate chandeliers cast fleeting glimmers across the dark, carved walls. Heavy velvet curtains frame tall, arched windows, and an ancient staircase spirals into darkness. {name} senses a weight of untold secrets and hidden whispers in the still, musty air.
         </h3>
-        <button className="hall-button" onClick={handleButtonClick}>Second Floor</button>
+        <button className="hall-button" onClick={handleButtonClick}>Go To Second Floor</button>
       </div>
 
       {showPopup && level<3? <FirstObs name={name} onClose={() => setShowPopup(false)}/>: showPopup&& <SecondObs name={name} onClose={() => setShowPopup(false)} />}
