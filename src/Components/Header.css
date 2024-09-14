@@ -1,16 +1,16 @@
-/* Unique styles for the Header component with a mysterious theme */
+
 
 .header-container {
-    position: fixed; /* Fix the header at the top */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+    background: rgba(0, 0, 0, 0.8); 
     padding: 20px;
     text-align: center;
-    border-bottom: 3px solid #444; /* Darker border */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Enhanced shadow */
-    z-index: 1000; /* Ensure it's above other content */
+    border-bottom: 3px solid #444; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); 
+    z-index: 1000; 
   }
   a{
     text-decoration: none;
@@ -18,7 +18,7 @@
   .Logout {
     position: absolute;
     right: 50px;
-    color: #cfcfcf; /* Light grey color for nav items */
+    color: #cfcfcf; 
     font-family: 'Arial', sans-serif;
     font-size: 20px;
     padding: 12px 20px;
@@ -61,11 +61,11 @@
 }
 
   .header-title {
-    color: #cfcfcf; /* Light grey color for the title */
-    font-family: 'Creepster', cursive; /* Spooky font */
-    font-size: 32px; /* Adjusted font size */
+    color: #cfcfcf;
+    font-family: 'Creepster', cursive; 
+    font-size: 32px; 
     margin: 0;
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9); /* Deep shadow effect */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9); 
   }
   
   .header-nav {
@@ -81,12 +81,12 @@
   }
   
   .header-nav-item {
-    color: #cfcfcf; /* Light grey color for nav items */
+    color: #cfcfcf; 
     font-family: 'Arial', sans-serif;
     font-size: 20px;
     padding: 12px 20px;
-    background-color: #333; /* Dark button background */
-    border: 2px solid #777; /* Grey border */
+    background-color: #333; 
+    border: 2px solid #777; 
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -95,12 +95,102 @@
   }
   
   .header-nav-item:hover {
-    background-color: #555; /* Slightly lighter background on hover */
+    background-color: #555; 
     color: #fff;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Subtle glow effect */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); 
   }
   
   .header-nav-item:active {
-    background-color: #222; /* Darker background when clicked */
+    background-color: #222; 
   }
-  
+  @media (max-width: 1200px) {
+  .header-container {
+    padding: 15px;
+  }
+  .header-title {
+    font-size: 26px; /* Smaller font size */
+  }
+  .header-nav-item {
+    font-size: 16px; /* Smaller font size for buttons */
+    padding: 8px 12px; /* Reduced padding for compact look */
+  }
+  .Logout {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+  .player {
+    font-size: 14px;
+  }
+  .player::before {
+    width: 35px; /* Smaller image */
+    height: 35px;
+  }
+}/* For screens with width less than 1200px */
+
+
+/* For screens with width less than 900px */
+@media (max-width: 1200px) {
+    .header-container {
+      padding: 10px;
+    }
+    .header-title {
+      font-size: 22px; /* Further reduce font size */
+    }
+    .header-nav {
+      margin-top: 10px;
+    }
+    .header-nav-list {
+      gap: 15px; /* Reduce gap between items */
+    }
+    .header-nav-item {
+      font-size: 14px; /* Smaller font size */
+      padding: 6px 10px; /* Compact padding */
+    }
+    .Logout {
+      font-size: 14px;
+      padding: 6px 10px;
+      right: 30px; /* Adjust position */
+    }
+    .player {
+      font-size: 12px;
+      padding: 5px;
+    }
+    .player::before {
+      width: 30px; /* Smaller profile image */
+      height: 30px;
+    }
+}
+
+/* For screens with width less than 600px */
+@media (max-width: 900px) {
+  .header-container {
+    padding: 5px;
+}
+.header-title {
+    font-size: 11px; /* Halved font size */
+}
+.header-nav {
+    margin-top: 5px;
+}
+.header-nav-list {
+    gap: 7.5px; /* Halved gap between items */
+}
+.header-nav-item {
+    font-size: 7px; /* Halved font size */
+    padding: 3px 5px; /* Halved padding */
+}
+.Logout {
+    font-size: 7px;
+    padding: 3px 5px;
+    right: 15px; /* Halved right position */
+}
+.player {
+    font-size: 6px;
+    padding: 2.5px;
+}
+.player::before {
+    width: 15px; /* Halved profile image size */
+    height: 15px;
+}
+
+}
